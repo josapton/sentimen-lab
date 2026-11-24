@@ -1,0 +1,62 @@
+# Python bytecode and test/build caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local credentials
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Generated model artifacts and local model caches
+/model_sentimen.joblib
+/model_indobert/
+/indobert_finetuned/
+/models/indobert*/
+/checkpoints/
+/runs/
+/wandb/
+.cache/huggingface/
+.cache/torch/
+/huggingface_cache/
+
+# Analysis exports, keep source datasets such as dataset_ulasan.csv
+/hasil_cli.csv
+/hasil_sentimen.csv
+/hasil_analisis.csv
+/hasil_*.csv
+
+# Local Windows testing launchers
+/start_all.bat
+/start_api.bat
+/start_web.bat
+/stop_all.bat
+/stop_api.bat
+/stop_web.bat
+
+# Logs and temporary process files
+*.log
+*.pid
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+.ipynb_checkpoints/

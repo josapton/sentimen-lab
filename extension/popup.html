@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>SentimenLab</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="header">
+    <div>
+      <h1>SentimenLab</h1>
+      <p>Browser Sentiment &amp; ABSA</p>
+    </div>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <button
+        id="btn-theme"
+        class="theme-btn"
+        type="button"
+        data-theme="auto"
+        aria-label="Tema: Otomatis (Sistem)"
+        title="Tema: Otomatis (Sistem). Klik untuk beralih."
+      >
+        <svg class="theme-icon" data-theme-icon="auto" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+          <path d="M8 21h8M12 17v4"></path>
+        </svg>
+        <svg class="theme-icon" data-theme-icon="dark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path>
+        </svg>
+        <svg class="theme-icon" data-theme-icon="light" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+        </svg>
+      </button>
+      <span id="status-pill" class="pill offline">Offline</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <label class="label">Arsitektur Model</label>
+    <div class="radio-group">
+      <label class="radio-opt">
+        <input type="radio" name="engine" value="indobert" checked />
+        <span>IndoBERT</span>
+      </label>
+      <label class="radio-opt">
+        <input type="radio" name="engine" value="pretrained" />
+        <span>Pre-trained</span>
+      </label>
+      <label class="radio-opt">
+        <input type="radio" name="engine" value="svm" />
+        <span>SVM</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="section toggle-row">
+    <div>
+      <div class="toggle-title">Auto-Scan saat Scroll</div>
+      <div class="toggle-sub">Pindai otomatis komentar baru saat menggulir</div>
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="toggle-autoscroll" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="section">
+    <button id="btn-scan" class="btn-primary">Pindai Komentar Halaman Ini</button>
+    <p class="hint">Menempelkan badge sentimen pada ulasan Shopee, Tokopedia, IG, X, &amp; Facebook.</p>
+  </div>
+
+  <div id="scan-summary" class="summary-box hidden">
+    <div class="label" style="margin-bottom: 8px;">Ringkasan Halaman (<span id="sum-total">0</span> komentar)</div>
+    <div class="kpi-grid">
+      <div class="kpi"><span class="k-title">Positif</span><span id="sum-pos" class="k-val pos">0</span></div>
+      <div class="kpi"><span class="k-title">Netral</span><span id="sum-net" class="k-val net">0</span></div>
+      <div class="kpi"><span class="k-title">Negatif</span><span id="sum-neg" class="k-val neg">0</span></div>
+    </div>
+    <button id="btn-export-csv" class="btn-secondary">Unduh Hasil Pemindaian (.CSV)</button>
+  </div>
+
+  <div class="footer-note">
+    Tips: Blok teks komentar mana pun di halaman web untuk analisis detail per aspek.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
