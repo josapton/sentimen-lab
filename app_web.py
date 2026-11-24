@@ -18,7 +18,7 @@ from transformer_model import (
 )
 
 st.set_page_config(
-    page_title="SentimenLab — Analisis Sentimen & ABSA",
+    page_title="SentimenLab - Analisis Sentimen & ABSA",
     layout="wide",
     initial_sidebar_state="expanded",
 )
